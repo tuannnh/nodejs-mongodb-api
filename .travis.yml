@@ -21,6 +21,8 @@ branches:
 sudo: required
 script:
 - echo $MONGODB_CONNECTION
+- ssh 'root@172.104.191.90' docker stop nodeapp
+- ssh 'root@172.104.191.90' docker rm nodeapp
 - docker build -t nodejs-api .
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
