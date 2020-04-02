@@ -19,12 +19,9 @@ branches:
   only:
   - master
 sudo: required
-jobs:
-  include:
-  - stage: docker-build
-  env: MONGODB_CONNECTION = $MONGODB_CONNECTION
-  script:
-  - docker build -t nodejs-api .
+env: MONGODB_CONNECTION = $MONGODB_CONNECTION
+script:
+- docker build -t nodejs-api .
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
 - docker tag nodejs-api $DOCKER_USER/nodejs-api:$TRAVIS_BUILD_NUMBER
