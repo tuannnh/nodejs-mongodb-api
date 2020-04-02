@@ -26,9 +26,9 @@ app.get('/posts', (req, res) => {
 });
 
 //Connect to  db
-mongoose.connect(process.env.DB_CONNECTION,
+mongoose.connect(process.env.MONGODB_CONNECTION,
 { useUnifiedTopology: true, useNewUrlParser: true},
 () => console.log('Connected to MongoDB'))
 
 // How to we start listening to the server
-app.listen(process.env.PORT, () => console.log('App is listening on port ' + process.env.PORT + process.env.TEST))
+app.listen(process.env.PORT, () => console.log('App is listening on port ' + process.env.PORT))
