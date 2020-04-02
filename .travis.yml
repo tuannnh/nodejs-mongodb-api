@@ -19,7 +19,6 @@ branches:
   only:
   - master
 sudo: required
-env: MONGODB_CONNECTION = $MONGODB_CONNECTION
 script:
 - docker build -t nodejs-api .
 after_success:
