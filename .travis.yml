@@ -1,6 +1,9 @@
 before_install:
+- echo "BEFORE INSTALL START"
+- gem install bundler
 - openssl aes-256-cbc -K $encrypted_4d4afe80b719_key -iv $encrypted_4d4afe80b719_iv
   -in deploy_rsa.enc -out ~/.ssh/deploy_rsa -d
+- echo "BEFORE INSTALL END"
 env:
   global:
   - secure: Mx0KcFTU1QQkzV8xdROIk3dPnh4PUKvGXUsejYm4wWN4YikLmcEnmM5Tz644kmoqqONGjh/Hocg/X5LqJodd7WK4g6KS9VKU3ILWx9sBa/Kf5z7+PWhvioKBXrSM2Bnsp3P0HrPQsAkAWFpguzwK4fJuhGepnXBdGDDXVdSNTF8AmYpe0x1dKzpARnIHKjgYHA0Ycw9tItgN+Ucp9dlmz0lySLxKjS+3oIhMI7ZZPIxBKeR6qHrUE1vAs003uZqxgwI7nGpdh1RplH0SToeglKoOT0pO0Xg0y0R42ZWlS2KLvWUQH5N1HNvvQcsKyHqSyDE/dPBsFS0XLw1Gq9N1PK8LZWrBckT3VINqaeZSzrWFSv5aZOfBllAvNuyQwoRtr3+834DJXK1DClc+r1Ft5P/SWCqcwmOGOfq8+aC13K25Nl6xmf5581I+Rq9wEbbQXiVqIQwHfWFonFvaHQJa+1oTrJ7CWA06nxw0URz0M1uWljFzEhg7aB9aq59tsRMj+gwbqnuvQdqVctHY2XSa+1fDzX+OP4p/sSZEVm88MA8DZ23w2karbDYTWh1eZZbOCwqEvbEZxZlLAvGQDoesWD7XlfndBd/67YNvTAQWndrVl3ky3klYzOAuPSwXDMW6Ex7++vsOJHA20MnLDQO2QN21oWuuqQ38JpIIraly7ng=
