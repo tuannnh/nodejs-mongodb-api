@@ -18,7 +18,7 @@ app.use('/posts', postsRoute)
 
 //This is get method for http request, app.post to use post method of http request
 app.get('/', (req, res) => {
-    res.send('Hello we are running')
+    res.send('Hello we are running in CI/CD')
 });
 
 app.get('/posts', (req, res) => {
