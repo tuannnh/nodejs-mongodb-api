@@ -7,7 +7,7 @@ before_install:
 - ssh-add ~/.ssh/deploy_rsa
 - ssh 'root@172.104.191.90' docker stop nodeapp
 - ssh 'root@172.104.191.90' docker rm nodeapp
-- ssh 'root@172.104.191.90' docker pull tuannnh/nodejs-api
+
 env:
   global:
   - secure: odISc0kWmo1WqfyQSValaLhlXlZaONJ7W8HbeRar8RtY1MjCTxpCAKEnoZUjSpaoK1Q5ujqbeVnHSRUzVYEdUlh6Zf5ewZnO43yzWFuUKMWptcKwwJaKRDLDCzRHMoxPquuWuo6xwflXDJ0ODCWvaUNunrWoV9NHZ2m0frjPeLUB6ofRTRIpvz3SpwzF6d5LJucX64AQ/gkdoXg3gTkRmCCjSRea5JWqFJXTDDMwHFsSJTG/fq80JtH1sKOiTE6/C1q1HyAImqqvsqa++nVvcxiFfBQ2IDM12wWwwgSLNU8oqEtfgCZCGBUgyGl4ZBFc2jpho8H2ABnFIKcN5VrM00zoVzlIspGwgYJgqys6LdZ8o+m1wRjyVG1LeA44uTJDSYoWD6+nUIfiMHjZqjL8VISR2U+loIjrr8A2KUipPIfx5uB08BFIQRjlHxQsVt9fFf7QqG+QssH57n5EiedGGG2zU8S69zRYVBQ8JFS/hTFbqgtopDnWHdmPS0fKuFBG7NLxoK+FTgJNZmg8+ABK+FfNrr3y9AckX0hoYy38GP5g5FiwhSapSu9X7D3Gn5sHRSinlzy5PJvgk0LIzEO8I+JDph0FQI45Y27KvPE54sJNNdTLDf1/KazhwiSGo9DluXvLK3AIlC9uNH8Qy7+Naw94wJhD/PD6LRObaNhSPxY=
@@ -28,6 +28,7 @@ after_success:
 - docker push $DOCKER_USER/nodejs-api:$TRAVIS_BUILD_NUMBER
 - docker tag nodejs-api $DOCKER_USER/nodejs-api:latest
 - docker push $DOCKER_USER/nodejs-api:latest
+- ssh 'root@172.104.191.90' docker pull tuannnh/nodejs-api
 - scp deploy.sh root@172.104.191.90:/usr/deploy.sh
 - ssh 'root@172.104.191.90' chmod +x /usr/deploy.sh
 - ssh 'root@172.104.191.90' /usr/deploy.sh
