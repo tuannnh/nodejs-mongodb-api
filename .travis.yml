@@ -20,7 +20,6 @@ branches:
   - master
 sudo: required
 script:
-- echo $MONGODB_CONNECTION
 - docker build -t nodejs-api .
 after_success:
 - docker login -u $DOCKER_USER -p $DOCKER_PASSWORD
