@@ -27,4 +27,5 @@ after_success:
 - docker tag nodejs-api $DOCKER_USER/nodejs-api:latest
 - docker push $DOCKER_USER/nodejs-api:latest
 - scp deploy.sh root@172.104.191.90:/usr/deploy.sh
-- ssh 'root@172.104.191.90' docker ps
+- ssh 'root@172.104.191.90' chmod +x /usr/deploy.sh
+- ssh 'root@172.104.191.90' /usr/deploy.sh
