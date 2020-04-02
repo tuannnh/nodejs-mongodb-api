@@ -1,6 +1,5 @@
 before_install:
 - echo "BEFORE INSTALL START"
-- gem install bundler
 - openssl aes-256-cbc -K $encrypted_4d4afe80b719_key -iv $encrypted_4d4afe80b719_iv
   -in deploy_rsa.enc -out ~/.ssh/deploy_rsa -d
 - eval "$(ssh-agent -s)"
